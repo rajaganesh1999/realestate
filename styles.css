@@ -1,18 +1,39 @@
+/* Title Styling */
+#properties {
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.properties-title {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #2c6e49;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
 /* Main Layout */
 .container1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px; /* Gap between video and text */
+    gap: 50px;
     padding: 30px;
     max-width: 1200px;
     margin: auto;
-    flex-wrap: wrap; /* Ensures proper wrapping on smaller screens */
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1.2s ease-out forwards 0.3s;
 }
 
 /* Left Side: Video */
 .video-section {
-    width: 50%; /* 50% width for video */
+    width: 50%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .video-section video {
@@ -21,34 +42,73 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Video Zoom Animation on Hover */
+.video-section:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
 /* Right Side: Text */
 .text-section {
-    width: 45%; /* 45% width for text */
+    width: 45%;
     padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards 0.6s;
 }
 
+/* Headings & Text */
 .text-section h2 {
     color: #2c6e49;
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Heading Hover Effect */
+.text-section h2:hover {
+    color: #1a4d35;
 }
 
 .text-section p {
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #333;
+}
+
+.text-section ul {
+    padding-left: 20px;
+}
+
+.text-section ul li {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    position: relative;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.8s ease-out forwards 1s;
+}
+
+/* Bullet Points Animation */
+.text-section ul li::before {
+    content: "✔";
+    color: #2c6e49;
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
     .container1 {
-        gap: 30px; /* Reduce gap on medium screens */
+        gap: 30px;
     }
 
     .text-section h2 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .text-section p {
@@ -65,7 +125,7 @@
 
     .video-section,
     .text-section {
-        width: 90%; /* Make both sections take full width */
+        width: 90%;
     }
 }
 
@@ -76,17 +136,42 @@
 
     .video-section,
     .text-section {
-        width: 100%; /* Full width for very small screens */
+        width: 100%;
     }
 
     .text-section h2 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .text-section p {
         font-size: 14px;
     }
 }
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 
 
@@ -143,7 +228,7 @@
     padding: 50px 20px;
     text-align: center;
     color: rgb(0, 0, 0); /* Adjust text color for readability */
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 
